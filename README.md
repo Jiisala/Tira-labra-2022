@@ -1,7 +1,11 @@
-# Jaakko's Dungen generator
+# Jaakko's Dungeon generator
 
 Readme will be updated at a later point. 
 
-## Dcumentation:
+## Documentation:
 
-[Määrittelydokumennti](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/maarittely.md)
+[Project specification](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/project_specification.md)##
+
+### Weekly reports
+
+[week 1](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Weekly_report_1.md)
