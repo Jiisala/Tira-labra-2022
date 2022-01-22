@@ -4,7 +4,7 @@ Readme will be updated at a later point.
 
 ## Documentation:
 
-[Project specification](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/project_specification.md)##
+[Project specification](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/project_specification.md)
 
 ### Weekly reports
 
