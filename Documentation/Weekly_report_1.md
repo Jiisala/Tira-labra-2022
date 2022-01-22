@@ -1,5 +1,5 @@
 # Weekly report 
-## week 1
+## Week 1
 
 Not a single line of code written yet this week. Time spend on deciding subject, researching possible algorithms to implement, figuring out basic structure of the program and setting up github repository etc. for the project. Unplanned oblications, related to a time period of human life called "Ruuhkavuodet" were seriously affecting my ability to study this week. Much of the researching and reading was done in small bursts when ever I had time, so the "hours used" figure for first week is an estimate. For the Binary space partitioning and flood fill parts of the code, I'm pretty confident that I will be able to get them in working condition fairly easily. Optimization might take some time and head scratching. 
 
