@@ -16,7 +16,7 @@ class Logic:
     
     
     def create_map(self):
-        """creates map by calling everything needed. Due to be spit up to smaller functions in later iterations. Made just to test that everything works together
+        """creates map by calling everything needed. Due to be split up to smaller functions in later iterations. Made just to test that everything works together.
         First calls BSP to divide map to sub areas, then finds the bottom layer of BSP tree (called leaves here). Calls cellular automata for each of the leaves, 
         floodfill to clean up after cellluar automata. Finally it stiches everything together and prints the map to console.  
         """
