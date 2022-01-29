@@ -8,6 +8,7 @@ Configured Poetry for ease of use, added also, Pylint, Pytest and coverage. Wrot
 Start the program by running launch.py, commands implemented this far are Q for quit and C for creating new map (not case sensitive) 
 
 Algorithms writen:
+
 Binary space partitioning (BSP)
 
 cellular automata
