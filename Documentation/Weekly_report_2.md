@@ -26,4 +26,5 @@ flood fill
   2 | 16 | planning, coding, tweaking, setting up (poetry, pylint, coverage, pytest), wrote first tests
 Total : 26
 
-![coverage](./coverage/coverage_report_week2.png)
+
+![coverage](./coverage/Coverage_report_week2.png)
