@@ -9,7 +9,9 @@ Start the program by running launch.py, commands implemented this far are Q for 
 
 Algorithms writen:
 Binary space partitioning (BSP)
+
 cellular automata
+
 flood fill
 
 
