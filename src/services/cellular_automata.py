@@ -1,4 +1,5 @@
-from logic import logic
+from services.randomgen import randomgen
+from entities.rect import Rect
 class CellularAutomata:
     """Cellular automata to carve out rooms
     """
@@ -8,16 +9,18 @@ class CellularAutomata:
         self.to_floor = 6
         self.to_wall = 3
         self.iterations = 2
-        self.map = [[1] * 13 for _ in range (6)]
-        self.h = (len(self.map))
-        self.w = (len(self.map[0]))
+
+        self.h = rect.y2 -rect.y
+        self.w = rect.x2 - rect.x
+        self.map = [[1] * self.w for _ in range (self.h)]
+
     
     def init_map(self):
         """Set random cells to floor
         """
         for y in range (self.h):
             for x in range (self.w):
-                chance = logic.random_number(0,100)
+                chance = randomgen.random_number(0,100)
                 if chance < self.floor_propability:
                     self.map[y][x] = 0
     
@@ -38,9 +41,11 @@ class CellularAutomata:
         return walls
 
     def carve_room(self):
+        """Carves out cave using the parameters, set in the constructor. 
+        """
         
         for i in range (self.iterations):
-            temp_map = [[1] * 13 for _ in range (6)]
+            temp_map = [[1] * self.w for _ in range (self.h)]
             for y in range(self.h):
                 for x in range(self.w):
                     walls = self.count_walls(x,y)
@@ -55,31 +60,5 @@ class CellularAutomata:
                         else:
                             temp_map[y][x] = 0
             self.map = [row[:] for row in temp_map]
-            for y in range (len(self.map)):
-                line = ""
-                for x in range(len (self.map[0])):
-                    if self.map[y][x]== 1: 
-                        line += "#"
-                    else:
-                        line += "."
-                print (line)
-            print()
+           
         return temp_map         
-
-
-ca = CellularAutomata(0)
-
-ca.init_map()
-
-for line in ca.map:
-    print(line)
-ca.carve_room()
-print()
-for y in range (len(ca.map)):
-    line = ""
-    for x in range(len (ca.map[0])):
-        if ca.map[y][x]== 1: 
-            line += "#"
-        else:
-            line += "."
-    print (line)

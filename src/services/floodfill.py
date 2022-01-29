@@ -10,10 +10,20 @@ class Floodfill:
         self.w = len(array[0])
         
         self.map = array
-        pass
-    
+        
+           
     def flood(self, start_x, start_y, number):
-        #visited = [[False] * self.w for _ in range (self.h)]
+        """floodfill, starting from given cordinates and moving to NEWS when it can
+
+        Args:
+            start_x (int): start cordinate x
+            start_y (int): start cordinate y
+            number (int): number to keep track of the different areas found
+
+        Returns:
+            int: number of cells flooded
+        """
+        counter = 0
         queue = []
         queue.append([start_x,start_y])
         while queue:
@@ -28,21 +38,42 @@ class Floodfill:
                     continue
                 elif self.map[y+new[1]][x+new[0]] != 0:
                     continue
-                queue.append([x+new[0],y+ new[1]])    
+                queue.append([x+new[0],y+ new[1]])
+                counter += 1
+        return counter    
     def find_area(self):
+        """scans the map for floorsquares and starts a floodfill when it finds one
+
+        Returns:
+            int: number to identify the largest area
+        """
         number= 2
+        largest = 0,0
+        
         for y in range (self.h):
             for x in range(self.w):
                 
                 if self.map[y][x] == 0:
-                    self.flood(x,y, number)
+                    count = self.flood(x,y, number)
+                    
+                    if largest[0] < count:
+                        largest = count, number
+                    
                     number +=1
+        return (largest[1])
+    
+    def fill_smaller(self, number):
+        """Fills in all areas except the largest
+
+        Args:
+            number (int): number representing the largest area found
+        """
+        for y in range (self.h):
+            for x in range(self.w):
+                
+                if self.map[y][x] != number:
+                    self.map[y][x]= 1
+                else:
+                    self.map[y][x]= 0
 
 
-testmap = [[1,0,1,1,1,1,1,1,1,1],[0,0,0,1,1,1,1,0,0,1],[1,0,1,1,1,1,1,0,0,0],[1,1,1,1,1,1,1,1,1,0]]
-for line in testmap:
-    print (line)
-t = Floodfill(testmap)
-t.find_area()
-for line in t.map:
-    print (line)

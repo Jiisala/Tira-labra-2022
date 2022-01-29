@@ -1,38 +1,61 @@
-import time
+
 from services.BSP import BSP
+from services.cellular_automata import CellularAutomata
+from services.floodfill import Floodfill
 
 
 class Logic:
 
+    """Main program logic, ties everything else together, still very much work in progress
+    """
+
     def __init__(self) -> None:
-        self.mapsize = 100, 50
+        self.mapsize = 50, 200
+        self.dungeon = [[1] * (self.mapsize[1]) for _ in range(self.mapsize[0])]
 
-    def random_number(self, min =0, max =10) -> int:
-        """Generates random positive integer in the range specified. If no limits are set defaults to from 0 to 9
-        Uses time_ns as a seed and simply returns the last digit(s). Max nuber of digits 19.
-        Args:
-            min (int, optional): lower bound, inclusive. Defaults to 0.
-            max (int, optional): upper bound, exclusive. Defaults to 10.
-
-        Returns:
-            int: random positive integer
-            if lower bound = upper bound returns lower bound  
-        """
-        if min > max or min < 0 or max > 10**20:
-            print ("Error handlnig goes here")
-            return None
-        if min == max:
-            return min
-        digits = len("%i" % max)
-        while True:
-            seed = time.time_ns()
-            #print (seed)
-            number = seed % (10 **digits)
-            if number in range(min, max):
-                return number
+    
     
     def create_map(self):
-        tree = BSP() 
+        """creates map by calling everything needed. Due to be spit up to smaller functions in later iterations. Made just to test that everything works together
+        First calls BSP to divide map to sub areas, then finds the bottom layer of BSP tree (called leaves here). Calls cellular automata for each of the leaves, 
+        floodfill to clean up after cellluar automata. Finally it stiches everything together and prints the map to console.  
+        """
+        tree = BSP(self.mapsize[0], self.mapsize[1])
+        if not tree:
+            print("we are not prepared for empty tree yet")
+            return
+        leaves_list = []
+        leaves = tree.find_leaves(tree.root, leaves_list)
+        try:
+            for leaf in leaves:
+                
+                ca = CellularAutomata(leaf)
+                ca.init_map()
+                
+                area_map = ca.carve_room()
+                
+                ff = Floodfill(area_map)
+                n =ff.find_area()
+                ff.fill_smaller(n)
+                area_map = ff.map
+                ah = len(area_map)
+                aw = len(area_map[0])
+
+                for y in range(ah):
+                    for x in range (aw):
+                    
+                        self.dungeon[y + leaf.y][x+ leaf.x] = area_map[y][x]
+            for y in range (len(self.dungeon)):
+                line = ""
+                for x in range(len(self.dungeon[0])):
+                    if self.dungeon[y][x] == 1:
+                        line +="#"
+                    else:
+                        line += "."
+                print(line)
+        except:
+            print ("error handling yet to be implemented")        
+         
     
 logic = Logic()    
     

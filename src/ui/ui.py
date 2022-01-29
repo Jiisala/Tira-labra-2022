@@ -3,9 +3,9 @@ from services.logic import logic
 class UI:
 
     def __init__(self) -> None:
-        self.start_screen()
+        pass
     
-    def start_screen(self):
+    def start(self):
         
         logo =(">v<                                            ",
         "_+_____________________________________________\ "     ,     
@@ -31,4 +31,4 @@ class UI:
             if next == "c":
                 logic.create_map()
 
-testi = UI()
+ui = UI()
