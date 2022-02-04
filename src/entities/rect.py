@@ -3,7 +3,8 @@ class Rect:
     Args:
         corners
     """
-    def __init__(self, x,y,x2,y2, child_left=None, child_right=None) -> None:
+
+    def __init__(self, x, y, x2, y2, child_left=None, child_right=None) -> None:
         self.x = x
         self.x2 = x2
         self.y = y

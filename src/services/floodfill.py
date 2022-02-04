@@ -41,6 +41,7 @@ class Floodfill:
                 queue.append([x+new[0],y+ new[1]])
                 counter += 1
         return counter    
+    
     def find_area(self):
         """scans the map for floorsquares and starts a floodfill when it finds one
 
