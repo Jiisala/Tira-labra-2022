@@ -1,5 +1,5 @@
 
-from services.BSP import BSP
+from services.bsp import Bsp
 from services.cellular_automata import CellularAutomata
 from services.corridors import Corridors
 from services.floodfill import Floodfill
@@ -17,15 +17,15 @@ class Logic:
         self.dungeon = [[1] * (self.mapsize[1])
                         for _ in range(self.mapsize[0])]
 
-    def call_BSP(self):
+    def call_bsp(self):
         try:
             while True:
 
-                tree = BSP(self.mapsize[0], self.mapsize[1], self.params)
+                tree = Bsp(self.mapsize[0], self.mapsize[1], self.params)
                 if tree.root.child_left or tree.root.child_right:
                     break
         except:
-            print("error handling still in progres, error happened while calling BSP")
+            print("error handling still in progres, error happened while calling Bsp")
 
         return tree
 
@@ -93,12 +93,12 @@ class Logic:
     def create_map(self):
         """creates map by calling everything needed. Due to be split up to smaller
         functions in later iterations. Made just to test that everything works together.
-        First calls BSP to divide map to sub areas, then finds the bottom layer of
-        BSP tree (called leaves here). Calls cellular automata for each of the leaves,
+        First calls Bsp to divide map to sub areas, then finds the bottom layer of
+        Bsp tree (called leaves here). Calls cellular automata for each of the leaves,
         floodfill to clean up after cellluar automata. Finally it stiches everything
         together and prints the map to console.
         """
-        tree = self.call_BSP()
+        tree = self.call_bsp()
 
         leaves = self.create_list_of_leaves(tree)
 

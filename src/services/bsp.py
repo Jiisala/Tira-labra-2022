@@ -3,7 +3,7 @@ from services.randomgen import randomgen
 from entities.rect import Rect
 
 
-class BSP:
+class Bsp:
     """Class for the Binary space partitioning algorithm. Height and width for the desired
         map size and creates a tree of smaller subareas. Params is to pass parameters.
         Parameters are defined in Params class.
@@ -73,8 +73,8 @@ class BSP:
             Returns:
                 list or Rect entities
         """
-        if not rect:
-            return
+        #if not rect: THIS BRANCH SEEMS TO BE REDUNDANT, IF HIDING IT DOES NOT CAUSE HAVOC, REMEMBER TO DELETE IT
+        #   return
         if rect.child_left is None and rect.child_right is None:
             arr.append(rect)
             return

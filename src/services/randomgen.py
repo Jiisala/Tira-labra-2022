@@ -1,6 +1,5 @@
 from time import time_ns
 
-
 class RandomGen:
     """for generating ranndom numbers
     """

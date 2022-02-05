@@ -7,7 +7,7 @@ class Corridors:
 
     def __init__(self) -> None:
         pass
-
+    
     def link(self, rect1, rect2, arr):
         """links two rectangles with a tunnel, to keep things simple will just
            find floortiles neares to the edge and use them as star and end points

@@ -10,7 +10,7 @@ class Params:
         self.map_width = 150
         self.map_height = 50
 
-        # BSP
+        # Bsp
         self.min_area_size = 6, 6
         self.stop_chance = 20
         self.stop_partitioning_width = 30

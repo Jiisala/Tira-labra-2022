@@ -2,7 +2,8 @@
 
 class Floodfill:
 
-    """Floodfill algorithm identifies all connected areas from a 2d map
+    """Floodfill algorithm identifies all connected areas from a 2d map.
+    call flood function.
     """
 
     def __init__(self, array) -> None:
