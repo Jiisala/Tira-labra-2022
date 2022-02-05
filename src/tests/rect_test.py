@@ -15,7 +15,7 @@ class TestRect(unittest.TestCase):
         self.test_rect = Rect(0, 1, 2, 3)
 
         self.assertEqual((0, 1, 2, 3), (self.test_rect.x,
-                         self.test_rect.y, self.test_rect.x2, self.test_rect.y2))
+                         self.test_rect.y, self.test_rect.x_2, self.test_rect.y_2))
 
         # self.assertIsNone(self.test_rect.child_right)
         # self.assertIsNone(self.test_rect.child_left)

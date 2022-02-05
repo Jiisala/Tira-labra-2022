@@ -6,12 +6,11 @@ class Floodfill:
     """
 
     def __init__(self, array) -> None:
-        self.h = len(array)
-        self.w = len(array[0])
-        
+        self.height = len(array)
+        self.width = len(array[0])
+
         self.map = array
-        
-           
+
     def flood(self, start_x, start_y, number):
         """floodfill, starting from given cordinates and moving to NEWS when it can
 
@@ -28,20 +27,19 @@ class Floodfill:
         queue.append([start_x,start_y])
         while queue:
             cell= queue[-1]
-            
             x = cell[0]
             y = cell[1]
             queue.remove(queue[-1])
             self.map[y][x] = number
             for new in [(0,1),(0,-1),(1,0),(-1,0)]:
-                if x + new[0] < 0 or y + new[1] <0 or x + new[0] >= self.w or y + new[1] >= self.h:
+                if x + new[0] < 0 or y + new[1] <0 or x + new[0] >= self.width or y + new[1] >= self.height:
                     continue
-                elif self.map[y+new[1]][x+new[0]] != 0:
+                if self.map[y+new[1]][x+new[0]] != 0:
                     continue
                 queue.append([x+new[0],y+ new[1]])
                 counter += 1
-        return counter    
-    
+        return counter
+
     def find_area(self):
         """scans the map for floorsquares and starts a floodfill when it finds one
 
@@ -50,31 +48,24 @@ class Floodfill:
         """
         number= 2
         largest = 0,0
-        
-        for y in range (self.h):
-            for x in range(self.w):
-                
+        for y in range (self.height):
+            for x in range(self.width):
                 if self.map[y][x] == 0:
                     count = self.flood(x,y, number)
-                    
                     if largest[0] < count:
                         largest = count, number
-                    
                     number +=1
-        return (largest[1])
-    
+        return largest[1]
+
     def fill_smaller(self, number):
         """Fills in all areas except the largest
 
         Args:
             number (int): number representing the largest area found
         """
-        for y in range (self.h):
-            for x in range(self.w):
-                
+        for y in range (self.height):
+            for x in range(self.width):
                 if self.map[y][x] != number:
                     self.map[y][x]= 1
                 else:
                     self.map[y][x]= 0
-
-

@@ -42,9 +42,9 @@ class Logic:
 
     def call_cellular_automata(self, rect):
         try:
-            ca = CellularAutomata(rect, self.params)
-            ca.init_map()
-            area_map = ca.carve_room()
+            cellular_a = CellularAutomata(rect, self.params)
+            cellular_a.init_map()
+            area_map = cellular_a.carve_room()
         except:
             print("error handling still in progres, error happened while carving rooms")
         return area_map
@@ -66,7 +66,7 @@ class Logic:
         self.dungeon = corridors.traverse_tree(rect, self.dungeon)
 
     def stich__map_together(self, rect, area_map):
-        """Stiches together the small area maps 
+        """Stiches together the small area maps
         """
         for y in range(len(area_map)):
             for x in range(len(area_map[0])):
@@ -91,9 +91,12 @@ class Logic:
         """
 
     def create_map(self):
-        """creates map by calling everything needed. Due to be split up to smaller functions in later iterations. Made just to test that everything works together.
-        First calls BSP to divide map to sub areas, then finds the bottom layer of BSP tree (called leaves here). Calls cellular automata for each of the leaves, 
-        floodfill to clean up after cellluar automata. Finally it stiches everything together and prints the map to console.  
+        """creates map by calling everything needed. Due to be split up to smaller
+        functions in later iterations. Made just to test that everything works together.
+        First calls BSP to divide map to sub areas, then finds the bottom layer of
+        BSP tree (called leaves here). Calls cellular automata for each of the leaves,
+        floodfill to clean up after cellluar automata. Finally it stiches everything
+        together and prints the map to console.
         """
         tree = self.call_BSP()
 

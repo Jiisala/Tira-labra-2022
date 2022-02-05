@@ -1,6 +1,5 @@
 from services.randomgen import randomgen
-from entities.rect import Rect
-
+#from entities.rect import Rect
 
 class CellularAutomata:
     """Cellular automata to carve out rooms, parameters are defind in Params class
@@ -12,15 +11,15 @@ class CellularAutomata:
         self.floor_to_wall = params.floor_to_wall
         self.iterations = params.iterations
 
-        self.h = rect.y2 - rect.y
-        self.w = rect.x2 - rect.x
-        self.map = [[1] * self.w for _ in range(self.h)]
+        self.height = rect.y_2 - rect.y
+        self.width = rect.x_2 - rect.x
+        self.map = [[1] * self.width for _ in range(self.height)]
 
     def init_map(self):
         """Set random cells to floor
         """
-        for y in range(self.h):
-            for x in range(self.w):
+        for y in range(self.height):
+            for x in range(self.width):
                 chance = randomgen.random_number(0, 100)
                 if chance < self.floor_propability:
                     self.map[y][x] = 0
@@ -34,21 +33,20 @@ class CellularAutomata:
         """
         walls = 0
         for new in [(0, 1), (0, -1), (1, 0), (1, -1), (1, 1), (-1, 0), (-1, 1), (-1, -1)]:
-            if x + new[0] < 0 or y + new[1] < 0 or x + new[0] >= self.w or y + new[1] >= self.h:
+            if x + new[0] < 0 or y + new[1] < 0 or x + new[0] >= self.width or y + new[1] >= self.height:
                 continue
-            else:
-                if self.map[(y+new[1])][x+new[0]] == 1:
-                    walls += 1
+            if self.map[(y+new[1])][x+new[0]] == 1:
+                walls += 1
         return walls
 
     def carve_room(self):
-        """Carves out cave using the parameters, set in the constructor. 
+        """Carves out cave using the parameters, set in the constructor.
         """
 
         for i in range(self.iterations):
-            temp_map = [[1] * self.w for _ in range(self.h)]
-            for y in range(self.h):
-                for x in range(self.w):
+            temp_map = [[1] * self.width for _ in range(self.height)]
+            for y in range(self.height):
+                for x in range(self.width):
                     walls = self.count_walls(x, y)
                     if self.map[y][x] == 1:
                         if walls > self.wall_to_floor:
