@@ -60,28 +60,28 @@ class UI:
                 
                 if next == "1":
                     print("""Map width: positive integer,
-    setting, both width and height smaller than BSP dimensions will cause problems""")
+setting, both width and height smaller than BSP dimensions will cause problems""")
                     print()
                     value = int(input("New value: "))
                     new_params.map_width = value    
                     self.logic = Logic(new_params)
                 if next == "2":
                     print("""Map height: positive integer,
-    setting, both width and height smaller than BSP dimensions will cause problems""")
+setting, both width and height smaller than BSP dimensions will cause problems""")
                     print()
                     value = int(input("New value: "))
                     new_params.map_height = value    
                     self.logic = Logic(new_params)
                 if next == "3":
                     print("""Minimum width of a sub area: positive integer,
-    setting, larger than Width to stop partitioning will cause problems""")
+setting, larger than half of Width to stop partitioning will cause problems""")
                     print()
                     value = int(input("New value: "))
                     new_params.min_area_width = value    
                     self.logic = Logic(new_params)
                 if next == "4":
                     print("""Minimum height of a sub area: positive integer,
-    setting, larger than Height to stop partitioning will cause problems""")
+setting, larger than half of Height to stop partitioning will cause problems""")
                     print()
                     value = int(input("New value: "))
                     new_params.min_area_height = value    
@@ -94,16 +94,16 @@ class UI:
                     self.logic = Logic(new_params)
                 if next == "6":
                     print("""Width to stop partitioning: positive integer,
-    setting larger than half of minimum width of a subarea will cause problems,
-    as will setting both stop partitioning height and width larger than map dimension """)
+setting smaller than twice the minimum width of a subarea will cause problems,
+as will setting both stop partitioning height and width larger than map dimension """)
                     print()
                     value = int(input("New value: "))
                     new_params.stop_partitioning_width = value    
                     self.logic = Logic(new_params)
                 if next == "7":
                     print("""Height to stop partitioning: positive integer,
-    setting larger than half of minimum height of a subarea will cause problems,
-    as will setting both stop partitioning height and width larger than map dimension """)
+setting smaller than twice of minimum height of a subarea will cause problems,
+as will setting both stop partitioning height and width larger than map dimension """)
                     print()
                     value = int(input("New value: "))
                     new_params.stop_partitioning_height = value    
@@ -163,14 +163,14 @@ class UI:
                     new_params.file_path = value
                     self.logic = Logic(new_params)        
                 if next == "17":
-                    print("""Filename to write. If file exists, new text will be appended,
-    if not file will be created to specified path""")
+                    print("""Name of the output file. If file exists, new text will be appended,
+if not file will be created to specified path""")
                     print()
                     value = input("New value: ")
                     new_params.file_name = value
                     self.logic = Logic(new_params)        
             except:
-                print("Error handling incoming any day now, but most propably incorrect input")
+                print("Error handling incoming any day now, but most propably error was caused by incorrect input")
     def start(self):
         print("\033c\033[3J", end='')
         
