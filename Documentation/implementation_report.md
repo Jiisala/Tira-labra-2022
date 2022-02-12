@@ -12,7 +12,7 @@ Coming soon
 
 ## Cellular automata
 
-Cellular automata uses a bit of a different ruleset from the basic Conway s game of life. It counts neighbouring walls for each cell (in eight directions) and if the cell has more than n neighbouring walls it will get converted from floor to wall or vice versa. Different n can be used for wall and floor cells. I found this method to yield aestetically pleasing shapes. examples of the algorithm being used in practice will be added here later.
+Cellular automata uses a bit of a different ruleset from the basic Conway s game of life. It counts neighbouring walls for each cell (in eight directions) and if the cell has more than n neighbouring walls it will get converted from floor to wall or vice versa. Different n can be used for wall and floor cells. I found this method to yield aestetically pleasing shapes. Examples of the algorithm being used in practice will be added here later, as will more detailed explanation of its working.
 
 ## Floodfill
 
