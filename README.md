@@ -36,6 +36,11 @@ poetry run invoke format
 
 [Project specification](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/project_specification.md)
 
+[Implementation report WIP](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/implementation_report.md)
+
+[Testing report WIP](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/testing_report)
+
+
 ### Weekly reports
 
 [week 1](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Weekly_report_1.md)
@@ -43,4 +48,6 @@ poetry run invoke format
 [week 2](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Weekly_report_2.md)
 
 [week 3](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Weekly_report_3.md)
+
+[week 4](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Weekly_report_4.md)
 
