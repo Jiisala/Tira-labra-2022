@@ -6,6 +6,7 @@ While using the program use commands Q to quit, C to create new map, S to open s
 
 When manually testing the program, please note that at this point it is possible to crash the program or to cause a endless loop if conflicting parameters are given. 
 
+The program is called dungeon generator, but really the resulting patterns can be used for variety of different purposes. I have designed this mainly level maps in mind, but that should not discourage other possibilities.
 
 ## Poetry commands:
 
