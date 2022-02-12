@@ -7,7 +7,7 @@ While using the program use commands Q to quit, C to create new map, S to open s
 When manually testing the program, please note that at this point it is possible to crash the program or to cause a endless loop if conflicting parameters are given. 
 
 
-Poetry commands:
+## Poetry commands:
 
 before first run, to se up dependencies
 ```bash
@@ -44,7 +44,7 @@ poetry run invoke format
 [Testing report WIP](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/testing_report)
 
 
-### Weekly reports
+## Weekly reports
 
 [week 1](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Weekly_report_1.md)
 
