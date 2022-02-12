@@ -2,7 +2,10 @@
 
 Project is set up using poetry, but simply for running the program no exotic dependencies are needed, just run launch.py. All dependencies are testing or code formatting related. 
 
-While using the program use commands Q to quit and C to create new map, both are case insensitive.
+While using the program use commands Q to quit, C to create new map, S to open settings view and B to get back to main view, all are case insensitive.
+
+When manually testing the program, please note that at this point it is possible to crash the program or to cause a endless loop if conflicting parameters are given. 
+
 
 Poetry commands:
 
