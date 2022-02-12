@@ -11,7 +11,8 @@ class Bsp:
 
     def __init__(self, height, width, params):
 
-        self.min_w, self.min_h = params.min_area_size
+        self.min_w = params.min_area_width
+        self.min_h = params.min_area_height
         self.stop_chance = params.stop_chance
         self.stop_partitioning_width = params.stop_partitioning_width
         self.stop_partitioning_height = params.stop_partitioning_height
@@ -30,11 +31,11 @@ class Bsp:
         width = rect.x_2 - rect.x
         height = rect.y_2 - rect.y
 
-        if width > height:
+        if width > height and width >= self.stop_partitioning_width:
             splitpoint = randomgen.random_number(self.min_w, width-self.min_w)
             rect_one = Rect(rect.x, rect.y, (rect.x + splitpoint), rect.y_2)
             rect_two = Rect((rect.x + splitpoint), rect.y, rect.x_2, rect.y_2)
-        else:
+        elif height >= self.stop_partitioning_height:
             splitpoint = randomgen.random_number(self.min_h, height-self.min_h)
             rect_one = Rect(rect.x, rect.y, rect.x_2, (rect.y + splitpoint))
             rect_two = Rect(rect.x, (rect.y+splitpoint), rect.x_2, rect.y_2)
@@ -73,8 +74,7 @@ class Bsp:
             Returns:
                 list or Rect entities
         """
-        #if not rect: THIS BRANCH SEEMS TO BE REDUNDANT, IF HIDING IT DOES NOT CAUSE HAVOC, REMEMBER TO DELETE IT
-        #   return
+
         if rect.child_left is None and rect.child_right is None:
             arr.append(rect)
             return

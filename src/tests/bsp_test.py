@@ -10,7 +10,8 @@ class TestBsp(unittest.TestCase):
         self.params.stop_chance = 0
         self.params.stop_partitioning_height = 8
         self.params.stop_partitioning_width = 5
-        self.params.min_area_size = 4,4
+        self.params.min_area_height = 4
+        self.params.min_area_width = 4
 
     def test_bsp_creates_tree_as_it_shoud(self):
 

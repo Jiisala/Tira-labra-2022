@@ -3,7 +3,7 @@
 class Floodfill:
 
     """Floodfill algorithm identifies all connected areas from a 2d map.
-    call flood function.
+    The fill smaller function fills in all but the largest area.
     """
 
     def __init__(self, array) -> None:
@@ -27,10 +27,10 @@ class Floodfill:
         queue = []
         queue.append([start_x,start_y])
         while queue:
-            cell= queue[-1]
+            cell= queue.pop()
             x = cell[0]
             y = cell[1]
-            queue.remove(queue[-1])
+            #queue.remove(queue[-1])
             self.map[y][x] = number
             for new in [(0,1),(0,-1),(1,0),(-1,0)]:
                 if x + new[0] < 0 or y + new[1] <0 or x + new[0] >= self.width or y + new[1] >= self.height:

@@ -1,4 +1,10 @@
+
 .coverage
 /htmlcov
 __pycache__
+
+/data/*
+!/data/.gitkeep
+
+
 
