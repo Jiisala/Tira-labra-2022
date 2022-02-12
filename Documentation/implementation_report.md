@@ -18,6 +18,6 @@ Coming soon
 
 Coming soon
 
-##Corridors
+## Corridors
 
-Allso coming soon
+Also coming soon
