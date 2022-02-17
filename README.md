@@ -6,7 +6,7 @@ While using the program use commands Q to quit, C to create new map, S to open s
 
 if the output to console is messy and unreadable, first ensure that the console window is wide enough to fit full lines of the map, so that no unwanted linebreaks happen.
 
-When manually testing the program, please note that at this point it is possible to crash the program or to cause a endless loop if conflicting parameters are given. You should be able to alter the general look of the dungeon a great deal by playing with the settings, so I recommend giving it a go anyway.  
+You should be able to alter the general look of the dungeon a great deal by playing with the settings, so I recommend doing some manual testing. Testing document with pre-generated dungeons to illustrate this is on the way.
 
 The program is called dungeon generator, but really the resulting patterns can be used for variety of different purposes. I have designed this mainly level maps in mind, but that should not discourage other possibilities.
 
