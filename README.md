@@ -10,7 +10,9 @@ You should be able to alter the general look of the dungeon a great deal by play
 
 The program is called dungeon generator, but really the resulting patterns can be used for variety of different purposes. I have designed this mainly level maps in mind, but that should not discourage other possibilities.
 
- 
+Detailed explanation of the algorithms can be found in the Implementation report. Link to it is bit furhter bellow. It is still work in progress, but it should be complete enough to understand what is happening inside the program. 
+
+
 ## Poetry commands:
 
 before first run, to se up dependencies
