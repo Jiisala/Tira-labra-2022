@@ -8,9 +8,7 @@ When the main engine is initiated, it loads current parameters and prepares an e
 
 ## BSP (Binary Space Partitioning)
 
-The binary space partitioning algorith takes a rect entity, that is basically just a rectangular area with up to two child entities, and partitions it to smallet areas, creating a tree in the process. It uses variety of parameters to controll the outcome. These are described in greater detail in the Manual 
-
-
+The binary space partitioning algorith takes a rect entity, that is basically just a rectangular area with up to two child entities, and partitions it to smallet areas, creating a tree in the process. It uses variety of parameters to controll the outcome. These are described in greater detail in the ![Manual](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Manual.md)
 ## Cellular automata
 
 Cellular automata uses a bit of a different ruleset from the basic Conway s game of life. It counts neighbouring walls for each cell (in eight directions) and if the cell has more than n neighbouring walls it will get converted from floor to wall or vice versa. Different n can be used for wall and floor cells. I found this method to yield aestetically pleasing shapes. Examples of the algorithm being used in practice will be added here later, as will more detailed explanation of its working.
