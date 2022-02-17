@@ -1,4 +1,4 @@
-
+from entities.rect import Rect
 from services.bsp import Bsp
 from services.cellular_automata import CellularAutomata
 from services.corridors import Corridors
@@ -19,15 +19,12 @@ class Logic:
         self.filewriter = Filewriter(self.params.file_name, self.params.file_path)
 
     def call_bsp(self):
-        try:
-            while True:
-
-                tree = Bsp(self.mapsize[0], self.mapsize[1], self.params)
-                if tree.root.child_left or tree.root.child_right:
-                    break
-        except:
-            print("error handling still in progres, error happened while calling Bsp")
-
+            
+        while True:
+            tree = Bsp(self.params)
+            if tree.tree.child_left or tree.tree.child_right:
+                break    
+        
         return tree
 
     def create_list_of_leaves(self, tree):
@@ -62,11 +59,11 @@ class Logic:
 
         return area_map
 
-    def carve_corridors(self, rect):
-        corridors = Corridors(self.params.turn_chance)
+    def call_corridors(self, rect):
+        corridors = Corridors(self.params)
         self.dungeon = corridors.traverse_tree(rect, self.dungeon)
 
-    def stich__map_together(self, rect, area_map):
+    def stitch__map_together(self, rect, area_map):
         """Stiches together the small area maps
         """
         for y in range(len(area_map)):
@@ -133,21 +130,22 @@ class Logic:
         """creates map by calling everything needed.
         First calls Bsp to divide map to sub areas, then finds the bottom layer of
         Bsp tree (called leaves here). Calls cellular automata for each of the leaves,
-        floodfill to clean up after cellluar automata. Finally it stiches everything
+        floodfill to clean up after cellluar automata. Finally it stitches everything
         together. Optionally it will carve tunnels and output the map to console/ file if
         those ations are allowed in settings.
         """
         tree = self.call_bsp()
 
         leaves = self.create_list_of_leaves(tree)
-
+        if not leaves:
+            leaves = [Rect(0,0,self.mapsize[0],self.mapsize[1])]
         for leaf in leaves:
             area_map = self.call_cellular_automata(leaf)
             area_map = self.call_floodfill(area_map)
 
-            self.stich__map_together(leaf, area_map)
+            self.stitch__map_together(leaf, area_map)
         if self.params.draw_corridors:
-            self.carve_corridors(tree.root)
+            self.call_corridors(tree.root)
         if self.params.output_to_console:
             self.display_map()
         if self.params.output_to_file:

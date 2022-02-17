@@ -1,3 +1,4 @@
+from tkinter import E
 from services.logic import Logic
 from params import Params
 
@@ -11,7 +12,11 @@ class UI:
     
     def settings(self):
         new_params = self.params
+        message= ""
+        error_message = "NOT A VALID VALUE, TRY AGAIN!"
+        success_message = "VALUE CHANGED!"
         while True:
+            
             print("\033c\033[3J", end='')
             print()
             print (f"""Current settings:
@@ -47,6 +52,8 @@ class UI:
             To change a setting enter index of the value you want to change 
             
             ___[1->17]_____[C]reate_____[B]ack___
+            
+            {message}
             """)
             
             try:
@@ -63,114 +70,173 @@ class UI:
 setting, both width and height smaller than BSP dimensions will cause problems""")
                     print()
                     value = int(input("New value: "))
-                    new_params.map_width = value    
-                    self.logic = Logic(new_params)
+                    if value < 0 or (value < new_params.stop_partitioning_width 
+                    and new_params.map_height < new_params.stop_partitioning_height):
+                        message = error_message
+                        
+                    else:
+                        new_params.map_width = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "2":
                     print("""Map height: positive integer,
 setting, both width and height smaller than BSP dimensions will cause problems""")
                     print()
                     value = int(input("New value: "))
-                    new_params.map_height = value    
-                    self.logic = Logic(new_params)
+                    if value < 0 or (value < new_params.stop_partitioning_height 
+                    and new_params.map_width < new_params.stop_partitioning_width):
+                        message = error_message
+                    else:
+                        new_params.map_height = value
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "3":
+
                     print("""Minimum width of a sub area: positive integer,
 setting, larger than half of Width to stop partitioning will cause problems""")
                     print()
                     value = int(input("New value: "))
-                    new_params.min_area_width = value    
-                    self.logic = Logic(new_params)
+                    if value < 0 or value > (new_params.stop_partitioning_width //2):
+                        message = error_message
+                    else:
+                        new_params.min_area_width = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "4":
                     print("""Minimum height of a sub area: positive integer,
 setting, larger than half of Height to stop partitioning will cause problems""")
                     print()
                     value = int(input("New value: "))
-                    new_params.min_area_height = value    
-                    self.logic = Logic(new_params)
+                    if value < 0 or value > (new_params.stop_partitioning_height //2):
+                        message = error_message
+                    else:
+                        new_params.min_area_height = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "5":
                     print("Stop chance: integer between 0 and 99")
                     print()
                     value = int(input("New value: "))
-                    new_params.stop_chance = value    
-                    self.logic = Logic(new_params)
+                    if value not in range(100):
+                        message = error_message
+                    else:
+                        new_params.stop_chance = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "6":
                     print("""Width to stop partitioning: positive integer,
 setting smaller than twice the minimum width of a subarea will cause problems,
 as will setting both stop partitioning height and width larger than map dimension """)
                     print()
                     value = int(input("New value: "))
-                    new_params.stop_partitioning_width = value    
-                    self.logic = Logic(new_params)
+                    if value < 0 or value < (new_params.min_area_width *2):
+                        message = error_message
+                    else:
+                        new_params.stop_partitioning_width = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "7":
                     print("""Height to stop partitioning: positive integer,
 setting smaller than twice of minimum height of a subarea will cause problems,
 as will setting both stop partitioning height and width larger than map dimension """)
                     print()
                     value = int(input("New value: "))
-                    new_params.stop_partitioning_height = value    
-                    self.logic = Logic(new_params)
+                    if value < 0 or value < (new_params.min_area_height *2):
+                        message = error_message
+                    else:    
+                        new_params.stop_partitioning_height = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "8":
                     print("Floor propability: Integer between 0 and 100")
                     print()
                     value = int(input("New value: "))
-                    new_params.floor_propability = value    
-                    self.logic = Logic(new_params)
+                    if value not in range(101):
+                        message = error_message
+                    else:
+                        new_params.floor_propability = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "9":
                     print("Min neighbouring walls to set wall to foor: Integer between 0 nd 8")
                     print()
                     value = int(input("New value: "))
-                    new_params.wall_to_floor = value    
-                    self.logic = Logic(new_params)
+                    if value not in range(9):
+                        message = error_message
+                    else:    
+                        new_params.wall_to_floor = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "10":
                     print("Min neighbouring walls to set to foor wall: Integer between 0 nd 8")
                     print()
                     value = int(input("New value: "))
-                    new_params.floor_to_wall = value    
-                    self.logic = Logic(new_params)
+                    if value not in range (9):
+                        message = error_message
+                    else:    
+                        new_params.floor_to_wall = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "11":
                     print("Iterations of cellular automata: Integer above zero")
                     print()
                     value = int(input("New value: "))
-                    new_params.iterations = value    
-                    self.logic = Logic(new_params)
+                    if value < 0:
+                        message = error_message
+                    else:
+                        new_params.iterations = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "12":
-                    print("Chance to make a turn on each step: Integer between 0 nd 99")
+                    print("Chance to make a turn on each step: Integer between 0 and 100")
                     print()
                     value = int(input("New value: "))
-                    new_params.turn_chance = value    
-                    self.logic = Logic(new_params)
+                    if value not in range (101):
+                        message = error_message
+                    else:
+                        new_params.turn_chance = value    
+                        self.logic = Logic(new_params)
+                        message = success_message
                 if next == "13":
-                    print("Draw corridors: Boolean, 1 for true 0 for false")
+                    print("Draw corridors: Boolean(integer): 0 for false, everything else will evaluate true")
                     print()
                     value = int(input("New value: "))
                     new_params.draw_corridors = value
-                    self.logic = Logic(new_params)        
+                    self.logic = Logic(new_params)    
+                    message = success_message
+
                 if next == "14":
-                    print("Output to console: Boolean, 1 for true 0 for false")
+                    print("Output to console: Boolean(integer): 0 for false, everything else will evaluate true")
                     print()
                     value = int(input("New value: "))
                     new_params.output_to_console = value
-                    self.logic = Logic(new_params)        
+                    self.logic = Logic(new_params)
+                    message = success_message
+
                 if next == "15":
-                    print("Output to file: Boolean, 1 for true 0 for false")
+                    print("Output to file: Boolean(integer): 0 for false, everything else will evaluate true")
                     print()
                     value = int(input("New value: "))
                     new_params.output_to_file = value
-                    self.logic = Logic(new_params)        
+                    self.logic = Logic(new_params)
+                    message = success_message        
                 if next == "16":
                     print("Path to file, for now please use relative path to src folder")
                     print()
                     value = input("New path: ")
                     new_params.file_path = value
-                    self.logic = Logic(new_params)        
+                    self.logic = Logic(new_params)
+                    message = success_message        
                 if next == "17":
                     print("""Name of the output file. If file exists, new text will be appended,
-if not file will be created to specified path""")
+if not, file will be created to specified path""")
                     print()
                     value = input("New value: ")
                     new_params.file_name = value
-                    self.logic = Logic(new_params)        
+                    self.logic = Logic(new_params)
+                    message = success_message        
             except:
-                print("Error handling incoming any day now, but most propably error was caused by incorrect input")
+                message = error_message
     def start(self):
         print("\033c\033[3J", end='')
         

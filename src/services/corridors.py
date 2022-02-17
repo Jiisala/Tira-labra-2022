@@ -7,8 +7,8 @@ class Corridors:
        it is becaus thats just how it was made, will refactor later.
     """
 
-    def __init__(self, turn_chance) -> None:
-        self.turn_chance = turn_chance
+    def __init__(self, params) -> None:
+        self.turn_chance = params.turn_chance
 
     def dig_horizontal(self, start, end, arr, direction):
         x = start[1]
@@ -16,16 +16,18 @@ class Corridors:
             while x < end[1]:
                 arr[start[0]][x] = 0
                 turn = randomgen.random_number()
+                x +=1
                 if turn < self.turn_chance:
                     break
-                x +=1
+                
         else:
             while x > end[1]:
                 arr[start[0]][x] = 0
                 turn = randomgen.random_number()
+                x -=1
                 if turn < self.turn_chance:
                     break
-                x -=1
+                
         return start[0], x
 
     def dig_vertical(self, start, end, arr, direction):
@@ -34,16 +36,18 @@ class Corridors:
             while y < end[0]:
                 arr[y][start[1]] = 0
                 turn = randomgen.random_number()
+                y +=1
                 if turn < self.turn_chance:
                     break
-                y +=1
+                
         else:
             while y > end[0]:
                 arr[y][start[1]] = 0
                 turn = randomgen.random_number()
+                y -=1
                 if turn < self.turn_chance:
                     break
-                y -=1
+                
         return y, start[1]
 
     def link(self, rect1, rect2, arr):
@@ -51,7 +55,7 @@ class Corridors:
            find floortiles neares to the edge and use them as star and end points.
            The method branches to two branches first taking care of rects split vertical,
            second horizontal. This method is due to get written again from scratch,
-           prettier next time.
+           return super().setUp()prettier next time.
 
         Args:
             rect1 (Rect): Rect entity
@@ -122,8 +126,8 @@ class Corridors:
             array: map with the tunnels carved
         """
 
-        if not rect:
-            return
+      #  if not rect: This seem so be redundant Delete if nothing bad happens when it is commented out
+       #     return
 
         if rect.child_left is None and rect.child_right is None:
             return

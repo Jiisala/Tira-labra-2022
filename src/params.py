@@ -28,12 +28,11 @@ class Params:
         # Corridors
 
         self.turn_chance = 50
-        self.draw_corridors = 1
+        self.draw_corridors = True
 
         # Output
 
-        self.output_to_console = 1
-        self.output_to_file = 1
+        self.output_to_console = True
+        self.output_to_file = True
         self.file_path = "./data/"
         self.file_name = str(date.today())+".txt"
-        
