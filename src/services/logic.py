@@ -19,12 +19,12 @@ class Logic:
         self.filewriter = Filewriter(self.params.file_name, self.params.file_path)
 
     def call_bsp(self):
-            
+
         while True:
             tree = Bsp(self.params)
             if tree.tree.child_left or tree.tree.child_right:
-                break    
-        
+                break
+
         return tree
 
     def create_list_of_leaves(self, tree):
@@ -115,7 +115,7 @@ class Logic:
             16. Path to file: {self.params.file_path}
             17. Filename: {self.params.file_name}
             
-""")    
+""")
         for y in range(len(self.dungeon)):
             line = ""
             for x in range(len(self.dungeon[0])):
@@ -150,4 +150,3 @@ class Logic:
             self.display_map()
         if self.params.output_to_file:
             self.write_map_to_file()
-

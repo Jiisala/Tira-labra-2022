@@ -30,10 +30,12 @@ class Floodfill:
             cell= queue.pop()
             x = cell[0]
             y = cell[1]
-            #queue.remove(queue[-1])
             self.map[y][x] = number
             for new in [(0,1),(0,-1),(1,0),(-1,0)]:
-                if x + new[0] < 0 or y + new[1] <0 or x + new[0] >= self.width or y + new[1] >= self.height:
+                if (x + new[0] < 0 or
+                    y + new[1] <0 or
+                    x + new[0] >= self.width or
+                    y + new[1] >= self.height):
                     continue
                 if self.map[y+new[1]][x+new[0]] != 0:
                     continue

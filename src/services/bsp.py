@@ -1,8 +1,5 @@
-
-from tkinter.messagebox import NO
 from services.randomgen import randomgen
 from entities.rect import Rect
-
 
 class Bsp:
     """Class for the Binary space partitioning algorithm. Height and width for the desired
@@ -31,7 +28,7 @@ class Bsp:
         """
         width = rect.x_2 - rect.x
         height = rect.y_2 - rect.y
-        
+
         rect_one = None
         rect_two = None
         if width > height and width >= self.stop_partitioning_width:
@@ -58,7 +55,7 @@ class Bsp:
         """
         chaos = randomgen.random_number()
         if not rect:
-            return 
+            return
         if chaos < self.stop_chance:
             return rect
         width = rect.x_2 - rect.x

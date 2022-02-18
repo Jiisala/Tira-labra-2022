@@ -33,7 +33,10 @@ class CellularAutomata:
         """
         walls = 0
         for new in [(0, 1), (0, -1), (1, 0), (1, -1), (1, 1), (-1, 0), (-1, 1), (-1, -1)]:
-            if x + new[0] < 0 or y + new[1] < 0 or x + new[0] >= self.width or y + new[1] >= self.height:
+            if (x + new[0] < 0 or
+                y + new[1] < 0 or
+                x + new[0] >= self.width or
+                y + new[1] >= self.height):
                 continue
             if self.map[(y+new[1])][x+new[0]] == 1:
                 walls += 1
@@ -43,7 +46,7 @@ class CellularAutomata:
         """Carves out cave using the parameters, set in the constructor.
         """
 
-        for i in range(self.iterations):
+        for _ in range(self.iterations):
             temp_map = [[1] * self.width for _ in range(self.height)]
             for y in range(self.height):
                 for x in range(self.width):

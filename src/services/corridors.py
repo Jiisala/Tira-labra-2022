@@ -19,7 +19,7 @@ class Corridors:
                 x +=1
                 if turn < self.turn_chance:
                     break
-                
+
         else:
             while x > end[1]:
                 arr[start[0]][x] = 0
@@ -27,7 +27,7 @@ class Corridors:
                 x -=1
                 if turn < self.turn_chance:
                     break
-                
+
         return start[0], x
 
     def dig_vertical(self, start, end, arr, direction):
@@ -39,7 +39,7 @@ class Corridors:
                 y +=1
                 if turn < self.turn_chance:
                     break
-                
+
         else:
             while y > end[0]:
                 arr[y][start[1]] = 0
@@ -47,7 +47,7 @@ class Corridors:
                 y -=1
                 if turn < self.turn_chance:
                     break
-                
+
         return y, start[1]
 
     def link(self, rect1, rect2, arr):
@@ -125,9 +125,6 @@ class Corridors:
         Returns:
             array: map with the tunnels carved
         """
-
-      #  if not rect: This seem so be redundant Delete if nothing bad happens when it is commented out
-       #     return
 
         if rect.child_left is None and rect.child_right is None:
             return
