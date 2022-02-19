@@ -1,6 +1,6 @@
 # Jaakko's Dungeon generator
 
-Project is set up using poetry, but simply for running the program no exotic dependencies are needed, just run launch.py. All dependencies are testing or code formatting related. The program however expects you to run it from the root directory. This is just because of the write to file functionality, the current verson has it set to true by default, I will change that for next version. 
+Project is set up using poetry, but simply for running the program no exotic dependencies are needed, just run launch.py. All dependencies are testing or code formatting related. The program however expects you to run it from the root directory. This is because of the write to file functionality, the current verson has it set to true by default, I will change that for next version.
 
 While using the program use commands Q to quit, C to create new map, S to open settings view and B to get back to main view, all are case insensitive.
 
