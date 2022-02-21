@@ -158,20 +158,20 @@ as will setting both stop partitioning height and width larger than map dimensio
                         self.logic = Logic(new_params)
                         message = success_message
                 if next == "9":
-                    print("Min neighbouring walls to set wall to foor: Integer between 0 nd 8")
+                    print("Min neighbouring walls to set wall to foor: Integer between 0 and 9 (9 = never)")
                     print()
                     value = int(input("New value: "))
-                    if value not in range(9):
+                    if value not in range(10):
                         message = error_message
                     else:    
                         new_params.wall_to_floor = value    
                         self.logic = Logic(new_params)
                         message = success_message
                 if next == "10":
-                    print("Min neighbouring walls to set to foor wall: Integer between 0 nd 8")
+                    print("Min neighbouring walls to set to foor wall: Integer between 0 and 9 (9 = never")
                     print()
                     value = int(input("New value: "))
-                    if value not in range (9):
+                    if value not in range (10):
                         message = error_message
                     else:    
                         new_params.floor_to_wall = value    

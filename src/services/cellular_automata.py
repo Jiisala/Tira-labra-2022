@@ -25,7 +25,7 @@ class CellularAutomata:
                     self.map[y][x] = 0
 
     def count_walls(self, x, y):
-        """count neigbourinc walls
+        """count neigbouring walls
 
         Args:
             x (int): cordinate
