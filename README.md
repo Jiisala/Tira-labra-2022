@@ -12,6 +12,10 @@ The program is called dungeon generator, but really the resulting patterns can b
 
 Detailed explanation of the algorithms can be found in the Implementation report. Link to it is bit further bellow. It is still work in progress, but it should be complete enough to understand what is happening inside the program. 
 
+**NOTE TO FOR THE PERSON DOING CODE REVIEW** 
+
+The last weeks author of code review had some difficulties in running the program. I do not have information of the authors set-up, so figuring out the cause of the error was bit hit or miss. The program is developed with cubbli linux, if you are using that everything should work. I isolated two possible culprits for the failure of the last week. One was the write to file functionality, if that causes problems, just turn it of from the settings. Other was the not so random RNG, I tested the program on a windows 10 computer and for reason or another that failed to work. I think that has something to do with the usage of time_ns. I will fix that for the next versions, but If you are reading this, that has not happened yet. If you experience any problems and you want to see the program in action, please contact me and I will upload a fix at earliest possibility. For easy fix you can also replace the contents of the Random_number function with "return randrange(lower_bound, upper_bound)" and replace the import for time_ns with "from random import randrange".
+
 
 ## Poetry commands:
 
