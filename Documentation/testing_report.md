@@ -12,6 +12,4 @@ The manual testing is performed by running the program multiple times, changing 
 
 ## Note on the RNG used
 
-The RNG used is really far from true randomness, it uses linear time and does not do any further operations to the seed number. Quick testing will show that for example generating 100 numbers between 1000 and 10000 in rapid succession, result in a noticeable pattern because the first digit does not change as fast enough. I believe that it is needless to say that it is not really sufficient way of generating randomness. However in this particular use, the numbers generated are mostly smaller than hundred and there is always a big enough interval between the calls. I chose to use this method because of ease of implementation and because I knew that it would satisfy my needs. If this project should continue after this course, the RNG will be replaced with something more random.
-
-I omitted the test for random distribution of numbers, as it is clear that the method would not pass any serious testing for randomness. Performance tests and unit tests for the class of course are performed. 
+**Obsolette information removed, new better information incoming**
