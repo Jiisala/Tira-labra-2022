@@ -42,4 +42,4 @@ the actual corridor carving will take two rect entities as arguments and determi
 
 ## Rng
 
-The RNG is simple. It just takes the current system time in nanoseconds, gets needed amount of digits from the end, checks if number gotten is in given limits, and returns the number if it is. Nothing too fancy or complicated there. The method is far from "real" randomness, and only works here because the program does not make many calls of numbers in fast succession. It is easily tested that for example generating 100 numbers in range from 1000 to 10000 will yield pattern spectacularly non random results. But because in this program only numbers smaller than hundred are generally needed and the calls won't come in rapid succession, this method is sufficiently random. If the program grows beyond this project this will get replaced by a proper RNG faster tha you can say "The rise of true randomness is not possible from deterministic systems such as computation by computers, and it's up to debate if such thing even exists outside of abstract level of thinking".
+**This became oboslette, will get written again to reflect the current rng later this week**
