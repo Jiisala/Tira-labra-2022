@@ -31,7 +31,7 @@ class Bsp:
 
         rect_one = None
         rect_two = None
-        if width > height and width >= self.stop_partitioning_width:
+        if width >= height and width >= self.stop_partitioning_width:
             splitpoint = randomgen.random_number(self.min_w, width-self.min_w)
             rect_one = Rect(rect.x, rect.y, (rect.x + splitpoint), rect.y_2)
             rect_two = Rect((rect.x + splitpoint), rect.y, rect.x_2, rect.y_2)

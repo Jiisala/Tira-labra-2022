@@ -37,3 +37,4 @@ class Params:
         self.file_path = "./data/"
         self.file_name = str(date.today())+".txt"
         
+        

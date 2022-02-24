@@ -31,7 +31,7 @@ class RandomGen:
                 seed = time_ns()
                 #print (seed)
                 self.divider +=1
-                if self.divider > seed:
+                if self.divider > seed//2:
                     self.divider = 1
                 seed = seed // self.divider
                 number = int(seed % upper_bound)

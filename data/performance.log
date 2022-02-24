@@ -1,0 +1,20 @@
+BSP shallow tree 
+ 4.2168519496917725 seconds 
+BSP deeper tree 
+ 10.01485824584961 seconds 
+BSP traversal 
+ 0.027936458587646484 seconds 
+Cellular_automata 
+ 0.04691052436828613 seconds 
+Floodfill 
+ 416.88475131988525 seconds 
+Corridors 
+ 302.9569652080536 seconds 
+RNG peformance 
+ 0.5069522857666016 seconds 
+RNG distribution mine (diference of most common and leasy common number) 
+ 596 
+RNG distribution python (diference of most common and least common number) 
+ 516  
+The whole program ran 1000 iterations 
+ 43.5652973651886 seconds 
