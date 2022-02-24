@@ -30,6 +30,10 @@ Run tests
 ```bash
 poetry run invoke tests
 ```
+Run performance tests
+```bash
+poetry run invoke performance
+```
 Coverage report
 ```bash
 poetry run coverage-report
