@@ -167,8 +167,6 @@ class TestLogic(unittest.TestCase):
     def test_create_dungeon_works(self):
         
         self.logic.create_map()
-        for line in (self.logic.dungeon):
-            print(line)
         self.assertEqual(self.logic.dungeon, [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
                                               [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
                                               [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -185,8 +183,6 @@ class TestLogic(unittest.TestCase):
     def test_create_dungeon_works_no_corridors(self):
         self.logic.params.draw_corridors = 0
         self.logic.create_map()
-        for line in (self.logic.dungeon):
-            print(line)
         self.assertEqual(self.logic.dungeon, [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
                                               [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
                                               [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1],

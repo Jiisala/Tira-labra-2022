@@ -46,7 +46,7 @@ class Performance:
     
         self.params.stop_partitioning_height = 101
         self.params.stop_partitioning_width = 99
-        iterations = 10 **6
+        iterations = 10 **3
         
         then = time()
         for _ in range (iterations):
@@ -58,7 +58,7 @@ class Performance:
         self.params.stop_partitioning_height = 99
         self.params.stop_partitioning_width = 99
         
-        iterations = 10 **6
+        iterations = 10 **3
         then = time()
         for _ in range (iterations):
             deep_tree = Bsp(self.params)
@@ -67,7 +67,7 @@ class Performance:
         self.write_log(f"BSP deeper tree \n {result} seconds \n")
        
         then = time()
-        iterations = 10 **6
+        iterations = 10 **3
         for _ in range (iterations):
             deep_tree.find_leaves
         now = time()
@@ -81,14 +81,14 @@ class Performance:
         """
         self.params = self.params_default    
         ca = CellularAutomata(Rect(0,0,100,100), self.params)
-        iterations = 10**6
+        iterations = 10**3
         then = time()
         for _ in range (iterations):
             ca.init_map
             ca.carve_room
         now = time()
         result = now -then
-        self.write_log(f"Cellular_automata \n {result} seconds \n")
+        self.write_log(f"Cellular automata \n {result} seconds \n")
         
 
     def perform_floodfill(self):
@@ -96,7 +96,7 @@ class Performance:
        
 
         flood = Floodfill(test_map)
-        iterations = 10 **6
+        iterations = 10 **3
         then = time()
         for _ in range (iterations):
             flood.find_area()
@@ -114,7 +114,7 @@ class Performance:
         self.params = self.params_default
         self.params.turn_chance = 0
         corr = Corridors(self.params)
-        iterations  = 10 **6
+        iterations  = 10 **3
         then = time()
         for _ in range(iterations):
             corr.link(Rect(0,0,50,100),Rect(50,0,100,100),test_map)
@@ -126,7 +126,7 @@ class Performance:
 
     def perform_rng(self):
         rng = RandomGen()
-        iterations = 10 **6
+        iterations = 10 **3
         then = time()
         for _ in range(iterations):
             rng.random_number()
@@ -138,7 +138,7 @@ class Performance:
     def rng_distribution(self):
         rng = RandomGen()
         checklist = [0] * 100
-        iterations = 10 **6
+        iterations = 10 **7
         for _ in range(iterations):
             n = rng.random_number()
             checklist[n] +=1
