@@ -24,6 +24,8 @@ class TestLogic(unittest.TestCase):
         self.params.stop_partitioning_width =12
         self.params.floor_propability = 0
         self.params.file_name = "testfile"
+        self.params.output_to_console = 0
+        self.params.output_to_file = 1
         self.logic = Logic(self.params)
         
     
@@ -130,7 +132,7 @@ class TestLogic(unittest.TestCase):
         with open ("./data/testfile", "r") as testfile:
             
             assertline = testfile.read()
-        test_text= content = (f"""
+        test_text = (f"""
 
         GENERAL:
             1. Map width: {self.params.map_width}
@@ -165,16 +167,17 @@ class TestLogic(unittest.TestCase):
     def test_create_dungeon_works(self):
         
         self.logic.create_map()
-        print(self.logic.dungeon)
+        for line in (self.logic.dungeon):
+            print(line)
         self.assertEqual(self.logic.dungeon, [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
                                               [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
                                               [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                                               [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1],
                                               [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
-                                              [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                                              [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                                              [1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1],
+                                              [1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1],
                                               [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
-                                              [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                                              [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1],
                                               [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1],
                                               [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
                                               [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]])
@@ -182,7 +185,8 @@ class TestLogic(unittest.TestCase):
     def test_create_dungeon_works_no_corridors(self):
         self.logic.params.draw_corridors = 0
         self.logic.create_map()
-        print(self.logic.dungeon)
+        for line in (self.logic.dungeon):
+            print(line)
         self.assertEqual(self.logic.dungeon, [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
                                               [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1],
                                               [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1],

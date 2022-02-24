@@ -33,7 +33,7 @@ class Params:
         # Output
 
         self.output_to_console = 1
-        self.output_to_file = 1
+        self.output_to_file = 0
         self.file_path = "./data/"
         self.file_name = str(date.today())+".txt"
         
