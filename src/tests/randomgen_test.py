@@ -22,4 +22,8 @@ class TestRandomgen(unittest.TestCase):
 
     def test_if_bounds_same(self):
         self.assertEqual(10,self.test_randomgen.random_number(10,10))
-        
+    
+    def test_divider_resets(self):
+        self.test_randomgen.divider= 9999999999999999999999999999999999 
+        self.test_randomgen.random_number()
+        self.assertEqual(1, self.test_randomgen.divider)

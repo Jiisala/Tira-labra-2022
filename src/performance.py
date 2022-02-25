@@ -35,6 +35,8 @@ class Performance:
         self.params_default = self.params
 
         self.writer = Filewriter(self.params.file_name, self.params.file_path)
+        open (f"{self.params.file_path}{self.params.file_name}","w").close()
+        
     def write_log(self, msg):
         self.writer.write_to_file(msg)
         

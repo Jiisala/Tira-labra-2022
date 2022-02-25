@@ -26,10 +26,8 @@ class RandomGen:
                 raise ValueError
             if lower_bound == upper_bound:
                 return lower_bound
-            #digits = len("%i" % upper_bound)
             while True:
                 seed = time_ns()
-                #print (seed)
                 self.divider +=1
                 if self.divider > seed//2:
                     self.divider = 1

@@ -36,5 +36,3 @@ class Params:
         self.output_to_file = 0
         self.file_path = "./data/"
         self.file_name = str(date.today())+".txt"
-        
-        
