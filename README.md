@@ -69,3 +69,4 @@ poetry run invoke format
 
 [week 5](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Weekly_report_5.md)
 
+[week 6](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Weekly_report_6.md)
