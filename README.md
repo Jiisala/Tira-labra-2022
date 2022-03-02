@@ -12,9 +12,6 @@ The program is called dungeon generator, but really the resulting patterns can b
 
 Detailed explanation of the algorithms can be found in the Implementation report. Link to it is bit further bellow. It is still work in progress, but it should be complete enough to understand what is happening inside the program. 
 
-**NOTE TO FOR THE PERSON DOING CODE REVIEW** 
-
-The last weeks author of code review had some difficulties in running the program. I do not have information of the authors set-up, so figuring out the cause of the error was bit hit or miss. The program is developed with cubbli linux, if you are using that everything should work. I isolated two possible culprits for the failure of the last week. One was the write to file functionality, if that causes problems, just turn it of from the settings. Other was the not so random RNG, I tested the program on a windows 10 computer and noticed that windows and linux handle time_ns differently. I uploaded a quick fix just now, and it even made the generator more random. I did not have time to test it properly, but it should work. I will do the testing for this weeks main release, but if you review the program before that we can only hope that the quick fix works and things go better than last week.
 
 ## Poetry commands:
 
@@ -49,6 +46,7 @@ poetry run invoke format
 
 
 ## Documentation:
+[manual](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/Manual.md)
 
 [Project specification](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/project_specification.md)
 
