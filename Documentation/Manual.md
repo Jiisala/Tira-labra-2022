@@ -85,7 +85,7 @@ The effects of these settings are highly depended on each other so it is hard to
 
  14. Output to console = If set to 0 the program wont print out the created map to console, any other value will get interpreted as `True`.
  15. Output to file = If set to 0 the program wont output the created map to a file, any other value will get interpreted as `True`. The current settings will get exported to the file with the map.
- 16. Path to file = Path to the output file, needs to be given as a relative path to the /src folder. The program wont enforce correct path to be given, but invalid path will cause the map creation to fail, if 15. is set as `True`.
+ 16. Path to file = Path to the output file, needs to be given as a relative path to the /src folder. The program won't enforce correct path to be given, but invalid path will cause the map creation to fail, if 15. is set as `True`.
  17. Filename: Name of the file created, defaults to current date and the extension .txt
  
 ## Miscellaneous notes
