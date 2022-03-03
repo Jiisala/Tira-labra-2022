@@ -46,7 +46,7 @@ If you see the line ` \033c\033[3J", end='') ` printed on top of the map, don't 
 In the setting view you can see the current settings and alter them. Here we have the already familiar [C]reate and [Q]uit commands. What is new is the [B]ack command that takes you back to the title screen and the commands for different settings. Entering numbers from 1 to 17 let you assign new value to the corresponding setting. If the value is not within acceptable limits, it won't change and a error message is displayed.
 
 ## Settings explained:
-The limits explained here are enforced by the program unless stated otherwise.
+The limits explained here are enforced by the program unless stated otherwise. Giving values larger than maximum integer value for map dimensions will crash the program. If you wish to create maps of that size, this program will probably not be the best choise for you anyway.
 
 **GENERAL:** 
 
