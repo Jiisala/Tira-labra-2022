@@ -36,7 +36,7 @@ The relevant preferences used when running the tests are:
 These are devised so that they would strip the program from randomness, as much as it is possible to do via preferences. Some randomness remained, but It should not affect the running times too much. BSP was tested twice, first with a shallow tree of two leaves, and then with a tree of four leaves.
 One test that was not strictly a performance test, but was tested at the same time was a test to see that the RNG I wrote gave roughly similar distribution than the pythons build in randrange function. That was achieved by running both of them one million times and noting how often each number appeared. Then the subtraction of the number with least appearances and the number with most appearances was calculated from both. From that it can be concluded that the RNG is sufficiently random. The floodfill algorithm has a recursive function to traverse the BSP tree and look for leaves, but it is essentially the same as the BSP traversal function, so it is not tested separately. The corridors test involves initiating the matrix used for testing before each iteration. Time spent on that is fraction of the whole test time, so I did not feel like subtracting that from the time it took running the test necessary
 
-The performance of the program was much worse than the individual algorithms combined. This result is something that will be investigated during next week, to properly identify the bottlenecks of the program.
+The performance of the program was much worse than the individual algorithms combined. This is seems to be mainly overhead from stiching the small maps together. That part of the program could probably be optmized quite a lot, but for now I will let it be as it is.
 
 The results of the tests run before writing this were as follows: 
 
@@ -72,3 +72,8 @@ The results of the tests run before writing this were as follows:
    43.75894284248352 seconds 
 
 By Investigating the result we can see that the BSP algorithm, cellular automata and RNG perform at much faster pace than Floodfill or corridors. For floodfill that is expected, because it potentially needs to visit each cell of the map multiple times. There are versions of the algorithm that are optimized better than the one used here. The different algorithms used are of course not directly comparable with each other, in terms of performance, but the test shows clearly which of them would need to be optimized most urgently if better performance was sought. 
+
+# Manual testing
+
+Through out the developement vigorous maual testing has taken place. As the aim of the program is to generate usable and above all aesthetically pleasing dungeons, testing the different settings and seeing that everything works as intended has been valuable tool. Most of the testing has not been recorded, but the testing done for will be written to a log file that can be inspected later. Bellow I will attach some images of generated dungeons and explanations on how different combinations of settings affect the results.
+
