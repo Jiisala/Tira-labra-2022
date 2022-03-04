@@ -50,7 +50,7 @@ poetry run invoke format
 
 [Project specification](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/project_specification.md)
 
-[Implementation report WIP](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/implementation_report.md)
+[Implementation report](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/implementation_report.md)
 
 [Testing report WIP](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/testing_report.md)
 
