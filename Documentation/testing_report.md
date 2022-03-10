@@ -75,7 +75,8 @@ By Investigating the result we can see that the BSP algorithm, cellular automata
 
 # Manual testing
 
-Through out the developement vigorous maual testing has taken place. As the aim of the program is to generate usable and above all aesthetically pleasing dungeons, testing the different settings and seeing that everything works as intended has been valuable tool. Most of the testing has not been recorded, but the testing done for will be written to a log file that can be inspected later. I uploaded a log file from a recent manual testing round to the repo. it can be found from [here](./data/test.log). It is a 34182 lines long file, so I won't paste it here, but feel free to browse it at will. I will however pick some examples and insights and present them bellow. Note that after these tests were made the corridor generating algorithm was slightly changed. Many of the different maps would benefit from different coloschemes, but here they are presented as they come out of the program. I hope that the reader can use the power of imagination here.
+Through out the developement vigorous maual testing has taken place. As the aim of the program is to generate usable and above all aesthetically pleasing dungeons, testing the different settings and seeing that everything works as intended has been valuable tool. Most of the testing has not been recorded, but the testing done for will be written to a log file that can be inspected later. I uploaded a log file from a recent manual testing round to the repo. it can be found from [here](./data/test.log). It is a 34182 lines long file, so I won't paste it here, but feel free to browse it at will. I will however pick some examples and insights and present them bellow. Note that after these tests were made, the corridor generating algorithm was slightly changed. 
+Many of the different maps would benefit from different coloschemes, but here they are presented as they come out of the program. I hope that the reader can use the power of imagination to add color.
 
 
 
@@ -791,4 +792,4 @@ GENERAL:
 
 ```
 
-I truly believe that is enough to show the difference you can make by fiddling with the settings, and I still find new combinations that give surprising results, even after spending embarrassingly long time generating maps and marveling my own work. 
+I believe that is enough to show the difference you can make by fiddling with the settings. I still find new combinations that give surprising results, even after spending embarrassingly long time generating maps and marveling my own work. Later on when combined with a game mechanics and added level features, this generator should be able to handle all the levels needed for a fairly complex game.  
