@@ -75,8 +75,8 @@ By Investigating the result we can see that the BSP algorithm, cellular automata
 
 # Manual testing
 
-Through out the developement vigorous maual testing has taken place. As the aim of the program is to generate usable and above all aesthetically pleasing dungeons, testing the different settings and seeing that everything works as intended has been valuable tool. Most of the testing has not been recorded, but the testing done for will be written to a log file that can be inspected later. I uploaded a log file from a recent manual testing round to the repo. it can be found from [here](./data/test.log). It is a 34182 lines long file, so I won't paste it here, but feel free to browse it at will. I will however pick some examples and insights and present them bellow. Note that after these tests were made, the corridor generating algorithm was slightly changed. 
-Many of the different maps would benefit from different coloschemes, but here they are presented as they come out of the program. I hope that the reader can use the power of imagination to add color.
+Through out the developement vigorous maual testing has taken place. As the aim of the program is to generate usable and above all aesthetically pleasing dungeons, testing the different settings and seeing that everything works as intended has been valuable tool. Most of the testing has not been recorded, but, to show an exaple of the process, I wrote a testing session to a log file that can be inspected later. I uploaded the log file from a recent manual testing round to the repo. it can be found from [here](./data/test.log). It is a 34182 lines long file, so I won't paste it here, but feel free to browse it at will. I will however pick some examples and insights and present them bellow. Note that after these tests were made, the corridor generating algorithm was slightly changed. 
+Many of the different maps would benefit from different coloschemes, but here they are presented as they come out of the program. I hope that the reader can use the power of imagination to add color. The log file is by no means a full collecton of different possibilities, but should give the observer some insight in how the settings affect the maps.
 
 
 
@@ -290,7 +290,7 @@ Setting the initial floor probability the low side, and iterating the cellular a
 
 ```
 
-Setting the floor probability on the high side and wall to floor transistion thereshold low, creates a map suitable for overworld generation, could easily represent a forrest, and be used as tiles to get a arbitary sized map.
+Setting the floor probability on the high side and wall to floor transistion thereshold low, creates a map suitable for overworld generation, could easily represent a forrest, and be used as tiles to get a arbitary sized map. Raising the initial floor probability genereates less dense forrests, but if raised too 
 
 ```
 GENERAL:
@@ -792,4 +792,4 @@ GENERAL:
 
 ```
 
-I believe that is enough to show the difference you can make by fiddling with the settings. I still find new combinations that give surprising results, even after spending embarrassingly long time generating maps and marveling my own work. Later on when combined with a game mechanics and added level features, this generator should be able to handle all the levels needed for a fairly complex game.  
+I believe that is enough to show the difference you can make by fiddling with the settings. I still find new combinations that give surprising results, even after spending embarrassingly long time generating maps and marveling my own work. Later on when combined with some game mechanics and added level features, this generator should be able to handle all the levels needed for a fairly complex game.  
