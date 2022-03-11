@@ -10,6 +10,7 @@ Performance tests are run on each algorithm separately and for the whole program
 
 The manual testing is performed by running the program multiple times, changing the parameters after sufficient amount of runs and writing the results to a file. The file will then be inspected by a human inspector and observations of the results will be made. The file will get uploaded to the repository for others to inspect.
 
+The code 
 ## More on performance testing
 
 Performance tests are done by running each algorithm one thousand times and measuring the spent time. While not too great number of iterations for performance testing one thousand times, is enough to note how different parts of the program perform in relation to each other. The measured times given bellow, are gathered from test running on a "freshman laptop 2021 edition", running cubbli linux. It has the following specs:
