@@ -12,13 +12,13 @@ The manual testing is performed by running the program multiple times, changing 
 
 The quality of the code is tested with pylint. Some exceptions are allowed, for example I really think that "x" and "y" are acceptable variable names, even if they dont strictly adhere to pylint standards. The final score is 9.63/10. The errors left are errors that I chose to leave there as I felt that fixing them would complicate the code rather than make it better.
 
-![pylint](./Documentation/img/pylint.png)
+![pylint](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/img/pylint.png)
 
 ## More on Unit testing
 
 In the final version branch coverage is 96%. Only tested class with less than 100% coverage is the logic class, it's coverage is 86%. The missed branches are all but one related to error handling. They prepare the class for failure of one of the algorithms called. I implemented them guite early in the developement, and at this stage, could not trigger them with tests. I did not want to write fake tests to cover them, but was also too afraid of getting rid of them at this stage, just before final deadline. I chose to leave them as they are, and leave them visible for coverage report. If I later continue to tinker with the program it is better that I can detect things like that easily (and for some reason code with "# pragma: no cover" markings confuses and infuriates me). The test for displaying map on screen misses the branch of printing ".". I decided that figuring out a way of getting it covered was not worth the trouble. If that functionality would somehow break, it would be basically impossible to not notice it when running the program for the next time.
 
-![coverage](./Documentation/img/coverage.png)
+![coverage](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/img/coverage.png)
 
 ## More on performance testing
 
@@ -86,7 +86,7 @@ By Investigating the result we can see that the BSP algorithm, cellular automata
 
 # Manual testing
 
-Through out the developement vigorous maual testing has taken place. As the aim of the program is to generate usable and above all aesthetically pleasing dungeons, testing the different settings and seeing that everything works as intended has been valuable tool. Most of the testing has not been recorded, but, to show an exaple of the process, I wrote a testing session to a log file that can be inspected later. I uploaded the log file from a recent manual testing round to the repo. it can be found from [here](./data/test.log). It is a 34182 lines long file, so I won't paste it here, but feel free to browse it at will. I will however pick some examples and insights and present them bellow. Note that after these tests were made, the corridor generating algorithm was slightly changed.
+Through out the developement vigorous maual testing has taken place. As the aim of the program is to generate usable and above all aesthetically pleasing dungeons, testing the different settings and seeing that everything works as intended has been valuable tool. Most of the testing has not been recorded, but, to show an exaple of the process, I wrote a testing session to a log file that can be inspected later. I uploaded the log file from a recent manual testing round to the repo. it can be found from [here](https://github.com/Jiisala/Tiralabra-2022/blob/main/data/test.log). It is a 34182 lines long file, so I won't paste it here, but feel free to browse it at will. I will however pick some examples and insights and present them bellow. Note that after these tests were made, the corridor generating algorithm was slightly changed.
 
 Many of the different maps would benefit from different color schemes, but here they are presented as they come out of the program. I hope that the reader can use the power of imagination to add color. The log file is by no means a full collecton of different possibilities, but should give the observer some insight in how the settings affect the maps.
 
