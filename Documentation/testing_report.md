@@ -4,13 +4,22 @@ For testing of the program three main approaches were taken. Automated Unittesti
 
 ## Testing methods
 
-Unittests are written for all of the classes, except UI. The tests for logic class concentrate mainly on testing that calling of the other classes work as intended. The functionality of the algorithms has been already tested in the tests written for the respective classes. For other classes the tests aim to test that the classes perform as wanted with given parameters and that no unwanted side effects rise from them. Testing should cover most of the branches in the code. Final version of coverage report will get attached here at the end of the course. I of course aim to get the numbers to 100%. 
+Unit tests are written for all of the classes, except UI. The tests for logic class concentrate mainly on testing that calling of the other classes work as intended. The functionality of the algorithms has been already tested in the tests written for the respective classes. For other classes the tests aim to test that the classes perform as wanted with given parameters and that no unwanted side effects rise from them. Testing should cover most of the branches in the code.
 
 Performance tests are run on each algorithm separately and for the whole program. They are all written in performance.py. They consist of running the algorithms with different parameters, stripped of randomness as far as feasible, and measuring the running time. They are easily repeatable at will just by running performance.py. 
 
 The manual testing is performed by running the program multiple times, changing the parameters after sufficient amount of runs and writing the results to a file. The file will then be inspected by a human inspector and observations of the results will be made. The file will get uploaded to the repository for others to inspect.
 
-The code 
+The quality of the code is tested with pylint. Some exceptions are allowed, for example I really think that "x" and "y" are acceptable variable names, even if they dont strictly adhere to pylint standards. The final score is 9.63/10. The errors left are errors that I chose to leave there as I felt that fixing them would complicate the code rather than make it better.
+
+![pylint](./Documentation/img/pylint.png)
+
+## More on Unit testing
+
+In the final version branch coverage is 96%. Only tested class with less than 100% coverage is the logic class, it's coverage is 86%. The missed branches are all but one related to error handling. They prepare the class for failure of one of the algorithms called. I implemented them guite early in the developement, and at this stage, could not trigger them with tests. I did not want to write fake tests to cover them, but was also too afraid of getting rid of them at this stage, just before final deadline. I chose to leave them as they are, and leave them visible for coverage report. If I later continue to tinker with the program it is better that I can detect things like that easily (and for some reason code with "# pragma: no cover" markings confuses and infuriates me). The test for displaying map on screen misses the branch of printing ".". I decided that figuring out a way of getting it covered was not worth the trouble. If that functionality would somehow break, it would be basically impossible to not notice it when running the program for the next time.
+
+![coverage](./Documentation/img/coverage.png)
+
 ## More on performance testing
 
 Performance tests are done by running each algorithm one thousand times and measuring the spent time. While not too great number of iterations for performance testing one thousand times, is enough to note how different parts of the program perform in relation to each other. The measured times given bellow, are gathered from test running on a "freshman laptop 2021 edition", running cubbli linux. It has the following specs:
@@ -73,7 +82,7 @@ The results of the tests run before writing this were as follows:
 
    43.75894284248352 seconds 
 
-By Investigating the result we can see that the BSP algorithm, cellular automata and RNG perform at much faster pace than Floodfill or corridors. For floodfill that is expected, because it potentially needs to visit each cell of the map multiple times. There are versions of the algorithm that are optimized better than the one used here. The different algorithms used are of course not directly comparable with each other, in terms of performance, but the test shows clearly which of them would need to be optimized most urgently if better performance was sought. The number for cellular automata is lower than expected. I did not factor in the original creation of the array. It seems to affect the outcome more than I thought, even if it is created only once vs the 1000 times the algorithm is ran. This became more evident when testing with bigger array dimensions. There probably is something in how python handles arrays that I don't know explaining the situation. 
+By Investigating the result we can see that the BSP algorithm, cellular automata and RNG perform at much faster pace than Floodfill or corridors. For floodfill that is expected, because it potentially needs to visit each cell of the map multiple times. There are versions of the algorithm that are optimized better than the one used here. The different algorithms used are of course not directly comparable with each other, in terms of performance, but the test shows clearly which of them would need to be optimized most urgently if better performance was sought. The number for cellular automata is lower than expected. I did not factor in the original creation of the array. It seems to affect the outcome more than I thought, even if it is created only once vs the 1000 times the algorithm is ran. This became more evident when testing with bigger array dimensions. There probably is something in how python handles arrays that I don't know explaining the situation, or there is something fishy with my testing method.
 
 # Manual testing
 
