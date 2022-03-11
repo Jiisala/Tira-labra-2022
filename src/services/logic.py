@@ -8,7 +8,8 @@ from services.filewriter import Filewriter
 
 class Logic:
 
-    """Main program logic, ties everything else together, still very much work in progress
+    """Main program logic, ties everything else together.
+    Dockstring given for the classes that are not completely self explanatory
     """
 
     def __init__(self, params) -> None:
@@ -28,13 +29,13 @@ class Logic:
         return tree
 
     def create_list_of_leaves(self, tree):
+        """ Finds the end nodes of each branch of the BSP tree and returs them as an array."""
         temp_array = []
         try:
 
             leaves = tree.find_leaves(tree.root, temp_array)
         except:
-            print(
-                "error handling still in progres, error happened while creating list of leaves")
+            print("error happened while creating list of leaves")
 
         return leaves
 
@@ -44,7 +45,7 @@ class Logic:
             cellular_a.init_map()
             area_map = cellular_a.carve_room()
         except:
-            print("error handling still in progres, error happened while carving rooms")
+            print("error happened while carving rooms")
         return area_map
 
     def call_floodfill(self, area_map):
@@ -54,8 +55,7 @@ class Logic:
             flood.fill_smaller(area)
             area_map = flood.map
         except:
-            print(
-                "error handling still in progres, error happened while calling floodfill")
+            print("error happened while calling floodfill")
 
         return area_map
 
@@ -74,6 +74,7 @@ class Logic:
         """clears console and prints current map
         """
         print("\033c\033[3J", end='')
+        print()
         for y in range(len(self.dungeon)):
             line = ""
             for x in range(len(self.dungeon[0])):
@@ -84,7 +85,8 @@ class Logic:
             print(line)
 
     def write_map_to_file(self):
-
+        """Writes the current settings and the generated map to a file specifed in the settings.
+        """
         content = (f"""
 
         GENERAL:
@@ -104,12 +106,11 @@ class Logic:
             10. Min neighbouring walls to set floor to wall: {self.params.floor_to_wall} 
             11. Iterations: {self.params.iterations}  
 
-            CORRIDORS
+            CORRIDORS:
             12. Chance to make a turn on each step: {self.params.turn_chance}
-            13. Draw corridors 1 = yes 0 = no: {self.params.draw_corridors}
+            13. Draw corridors: {self.params.draw_corridors}
 
-            OUTPUT
-
+            OUTPUT:
             14. Output to console: {self.params.output_to_console}
             15. Output to file: {self.params.output_to_file}
             16. Path to file: {self.params.file_path}

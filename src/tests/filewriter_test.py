@@ -2,6 +2,8 @@ from services.filewriter import Filewriter
 import unittest
 
 class TestFilewriter(unittest.TestCase):
+    """Tests for the filewriter
+    """
 
     def setUp(self) -> None:
         self.filewriter = Filewriter("testfile","./data/")

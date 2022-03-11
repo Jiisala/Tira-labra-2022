@@ -5,6 +5,9 @@ from params import Params
 import unittest
 
 class TestCellularAutomata(unittest.TestCase):
+    """Collection of tests for the cellular automata class
+
+    """
 
     def setUp(self) -> None:
         self.params = Params()

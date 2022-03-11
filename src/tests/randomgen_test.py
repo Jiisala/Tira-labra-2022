@@ -2,6 +2,8 @@ import unittest
 from services.randomgen import RandomGen
 
 class TestRandomgen(unittest.TestCase):
+    """tests for the random number generator
+    """
 
     def setUp(self) -> None:
         self.test_randomgen = RandomGen()

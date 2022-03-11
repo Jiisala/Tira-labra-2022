@@ -1,4 +1,6 @@
 class Filewriter:
+    """Class to handle writing to file.
+    """
 
     def __init__(self, filename, path) -> None:
         self.file = path + filename

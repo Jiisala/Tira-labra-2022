@@ -1,9 +1,10 @@
-from tkinter import E
 from services.logic import Logic
 from params import Params
 
 
 class UI:
+    """As the name implies the UI, crude but does what it needs to do.
+    """
 
     def __init__(self) -> None:
         self.params= Params()
@@ -11,6 +12,8 @@ class UI:
         
     
     def settings(self):
+        """Settings view, if exited returns boolean to tell the main view if the user wanted to continue or quit.
+        """
         new_params = self.params
         message= ""
         error_message = "NOT A VALID VALUE, TRY AGAIN!"
@@ -26,8 +29,8 @@ class UI:
             2. Map height: {self.logic.params.map_height}
 
             BINARY SPACE PARTITIONING:  
-            3. Minimum sub area width: {self.logic.params.min_area_width}
-            4. Minimum sub_area_height: {self.logic.params.min_area_height}
+            3. Minimum subarea width: {self.logic.params.min_area_width}
+            4. Minimum subarea_height: {self.logic.params.min_area_height}
             5. Stop chance: {self.logic.params.stop_chance}
             6. Width to cease partitioning: {self.logic.params.stop_partitioning_width}
             7. Height to cease partitioning: {self.logic.params.stop_partitioning_height}
@@ -38,12 +41,11 @@ class UI:
             10. Min neighbouring walls to set floor to wall: {self.logic.params.floor_to_wall} 
             11. Iterations: {self.logic.params.iterations}  
 
-            CORRIDORS
+            CORRIDORS:
             12. Chance to make a turn on each step: {self.logic.params.turn_chance}
             13. Draw corridors: {self.logic.params.draw_corridors}
             
-            OUTPUT
-
+            OUTPUT:
             14. Output to console: {self.logic.params.output_to_console}
             15. Output to file: {self.logic.params.output_to_file}
             16. Path to file: {self.logic.params.file_path}
@@ -51,8 +53,7 @@ class UI:
             
             To change a setting enter index of the value you want to change 
             
-            ___[1->17]_____[C]reate_____[B]ack___
-            
+            ___[1->17]_____[C]reate_____[B]ack_____[Q]uit___           
             {message}
             """)
             
@@ -60,7 +61,9 @@ class UI:
                 next = input("> ").lower()
              
                 if next == "b":
-                    break   
+                    return False
+                if next == "q":
+                    return True       
                 if next == "c":
                     self.logic.create_map()
                     break
@@ -181,7 +184,7 @@ as will setting both stop partitioning height and width larger than map dimensio
                     print("Iterations of cellular automata: Integer above zero")
                     print()
                     value = int(input("New value: "))
-                    if value < 0:
+                    if value < 1:
                         message = error_message
                     else:
                         new_params.iterations = value    
@@ -235,10 +238,16 @@ if not, file will be created to specified path""")
                     new_params.file_name = value
                     self.logic = Logic(new_params)
                     message = success_message        
-            except:
+            except ValueError:
                 message = error_message
+                    
+
     def start(self):
+        """Main view
+        """
+
         print("\033c\033[3J", end='')
+        print()
         
         logo = (">v<                                            ",
                 "_+_____________________________________________, ",
@@ -261,13 +270,18 @@ if not, file will be created to specified path""")
             print()
             print("___[C]reate_____[S]ettings_____[Q]uit___")
             print()
+           
             next = input(">").lower()
-            if next == "q":
-                break
-            if next == "c":
-                self.logic.create_map()
-            if next == "s":
-                self.settings()
-
+            try:
+                if next == "q":
+                    break
+                if next == "c":
+                    self.logic.create_map()
+                if next == "s":
+                    quit_or_not=self.settings()
+                    if quit_or_not:
+                        break
+            except ValueError:
+                continue                
 
 ui = UI()

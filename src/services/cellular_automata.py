@@ -1,5 +1,4 @@
 from services.randomgen import randomgen
-#from entities.rect import Rect
 
 class CellularAutomata:
     """Cellular automata to carve out rooms, parameters are defind in Params class
@@ -25,7 +24,7 @@ class CellularAutomata:
                     self.map[y][x] = 0
 
     def count_walls(self, x, y):
-        """count neigbouring walls
+        """count neigbouring walls in eight directions
 
         Args:
             x (int): cordinate

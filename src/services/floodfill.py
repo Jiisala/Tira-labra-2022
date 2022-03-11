@@ -13,7 +13,7 @@ class Floodfill:
         self.map = array
 
     def flood(self, start_x, start_y, number):
-        """floodfill, starting from given cordinates and moving to NEWS when it can
+        """floodfill, starting from given cordinates and moving to N E W S when it can
 
         Args:
             start_x (int): start cordinate x

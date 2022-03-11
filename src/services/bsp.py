@@ -2,8 +2,8 @@ from services.randomgen import randomgen
 from entities.rect import Rect
 
 class Bsp:
-    """Class for the Binary space partitioning algorithm. Height and width for the desired
-        map size and creates a tree of smaller subareas. Params is to pass parameters.
+    """Class for the Binary space partitioning algorithm. Takes height and width for the desired
+        map size and creates a tree of smaller subareas.
         Parameters are defined in Params class.
     """
 
@@ -19,7 +19,7 @@ class Bsp:
         self.tree = self.partition(self.root)
 
     def split_area(self, rect):
-        """splits given rectangle to two from randomly selected point in the long  side.
+        """splits given rectangle to two from randomly selected point in the long side.
         minimum length of a side after the split is defined in Params class
         Args:
             rect (Rect): rectangle
@@ -44,9 +44,7 @@ class Bsp:
 
     def partition(self, rect):
         """takes a rectangle and partitions it to a number of smaller rectangles,
-        returns tree of rectangles. Added some chaos to make the area sizes vary a bit,
-        the mechanic sould be refined later
-
+        returns tree of rectangles. Added some chaos to make the area sizes vary.
         Args:
             rect (Rect): Rectangles
 
@@ -62,10 +60,10 @@ class Bsp:
         height = rect.y_2 - rect.y
         if width < self.stop_partitioning_width and height < self.stop_partitioning_height:
             return rect
-        else:
-            rect_one, rect_two = self.split_area(rect)
-            rect.child_left = self.partition(rect_one)
-            rect.child_right = self.partition(rect_two)
+
+        rect_one, rect_two = self.split_area(rect)
+        rect.child_left = self.partition(rect_one)
+        rect.child_right = self.partition(rect_two)
         return rect
 
     def find_leaves(self, rect, arr):

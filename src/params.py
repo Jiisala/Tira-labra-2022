@@ -1,8 +1,8 @@
 from datetime import date
 
 class Params:
-    """Class to collect parameters for dungeon generations. This can be modified through settings
-    menu (not yet implemented) or by manually changing them.
+    """Class to collect parameters for dungeon generations. These can be modified through settings
+    menu while running the program.
     """
 
     def __init__(self) -> None:

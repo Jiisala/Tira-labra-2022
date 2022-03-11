@@ -55,27 +55,26 @@ class Performance:
             shallow_tree = Bsp(self.params)
         now = time()
         result = now - then
-        self.write_log(f"BSP shallow tree \n {result} seconds \n")
-        
+        self.write_log(f"BSP shallow tree, 1000 iterations \n {result} seconds \n")
+        print((f"BSP shallow tree, 1000 iterations \n {result} seconds \n"))
         self.params.stop_partitioning_height = 99
         self.params.stop_partitioning_width = 99
         
-        iterations = 10 **3
         then = time()
         for _ in range (iterations):
             deep_tree = Bsp(self.params)
         now = time()
         result = now - then
-        self.write_log(f"BSP deeper tree \n {result} seconds \n")
+        self.write_log(f"BSP deeper tree, 1000 iterations \n  {result} seconds \n")
+        print((f"BSP deeper tree, 1000 iterations \n {result} seconds \n"))
        
         then = time()
-        iterations = 10 **3
         for _ in range (iterations):
             deep_tree.find_leaves
         now = time()
         result = now -then
-        self.write_log(f"BSP traversal \n {result} seconds \n")
-        
+        self.write_log(f"BSP traversal, 1000 iterations \n {result} seconds \n")
+        print((f"BSP traversal, 1000 iterations \n {result} seconds \n"))
 
     def perform_ca(self):
         """Cellular automata is tested with floor propability of 0, to get consistent returns with minimun
@@ -90,8 +89,8 @@ class Performance:
             ca.carve_room
         now = time()
         result = now -then
-        self.write_log(f"Cellular automata \n {result} seconds \n")
-        
+        self.write_log(f"Cellular automata, 1000 iterations \n {result} seconds \n")
+        print((f"Cellular automata, 1000 iterations \n {result} seconds \n"))
 
     def perform_floodfill(self):
         test_map = [[1,1,0,0,1,0,0,0,1,1] * 10 for _ in range (100)]
@@ -104,8 +103,8 @@ class Performance:
             flood.find_area()
         now = time()
         result = now -then
-        self.write_log(f"Floodfill \n {result} seconds \n")
-        
+        self.write_log(f"Floodfill, 1000 iterations \n {result} seconds \n")
+        print((f"Floodfill, 1000 iterations \n {result} seconds \n"))
 
     def perform_corridors(self):
         test_map = [[1] * 100 for _ in range (100)]
@@ -123,8 +122,8 @@ class Performance:
             test_map = test_map2[::]
         now = time()
         result = now-then
-        self.write_log(f"Corridors \n {result} seconds \n")
-        
+        self.write_log(f"Corridors, 1000 iterations \n {result} seconds \n")
+        print((f"Corridors, 1000 iterations \n {result} seconds \n"))
 
     def perform_rng(self):
         rng = RandomGen()
@@ -134,8 +133,8 @@ class Performance:
             rng.random_number()
         now = time()
         result = now-then
-        self.write_log(f"RNG peformance \n {result} seconds \n")
-
+        self.write_log(f"RNG peformance, 1000 iterations \n {result} seconds \n")
+        print(f"RNG peformance, 1000 iterations \n {result} seconds \n")
 
     def rng_distribution(self):
         rng = RandomGen()
@@ -145,14 +144,15 @@ class Performance:
             n = rng.random_number()
             checklist[n] +=1
         result_own = max(checklist) - min(checklist)    
-        self.write_log(f"RNG distribution mine (diference of most common and least common number) \n {result_own} \n")
-        
+        self.write_log(f"RNG distribution (mine) (diference of most common and least common number) \n {result_own} \n")
+        print(f"RNG distribution (mine) (diference of most common and least common number) \n {result_own} \n")
         checklist2 = [0] * 100
         for _ in range(iterations):
             n = randrange(0,100)
             checklist2[n] +=1
         result_pyth = max(checklist2) - min(checklist2)    
-        self.write_log(f"RNG distribution python (diference of most common and least common number) \n {result_pyth} \n")
+        self.write_log(f"RNG distribution (python) (diference of most common and least common number) \n {result_pyth} \n")
+        print(f"RNG distribution (python) (diference of most common and least common number) \n {result_pyth} \n")
 
     def perform_prog(self):
         self.params = self.params_default
@@ -164,7 +164,7 @@ class Performance:
         now = time()
         result = now - then
         self.write_log(f"The whole program ran 1000 iterations \n {result} seconds \n")
-
+        print(f"The whole program ran 1000 iterations \n {result} seconds \n")
     def run_all_tests(self):
         self.perform_bsp()
         self.perform_ca()

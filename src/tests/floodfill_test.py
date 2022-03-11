@@ -3,6 +3,9 @@ from services.floodfill import Floodfill
 import unittest
 
 class TestFloodfill(unittest.TestCase):
+    """Tests for the Floodfill class
+
+    """
 
     def setUp(self) -> None:
         

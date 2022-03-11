@@ -1,10 +1,9 @@
-from tkinter.messagebox import NO
 from params import Params
 from services.bsp import Bsp
 import unittest
 
 class TestBsp(unittest.TestCase):
-    "Parameters imported and modified to controll randomnes from the process"
+    "Tests for the Bsp class"
 
     def setUp(self) -> None:
         self.params = Params()

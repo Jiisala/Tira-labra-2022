@@ -1,5 +1,9 @@
 from invoke import task
 
+# commands for doing different things. 
+# If poetry is installed and properly initiated these can be used 
+# with syntax: poetry run invoke [command]
+
 @task
 def start(ctx):
     ctx.run("python3 src/launch.py")
