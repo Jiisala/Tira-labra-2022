@@ -50,8 +50,8 @@ The limits explained here are enforced by the program unless stated otherwise. G
 
 **GENERAL:** 
 
-1. Map width = Width of the mag generated. 
-2. Map height = = Height of the mag generated. 
+1. Map width = Width of the map generated. 
+2. Map height = Height of the map generated. 
 
 One of these needs to be bigger than the corresponding partitioning limit (6. and 7.), as the program expects to make at least one cut to the area. 
 Both naturally need to be positive integers.  
@@ -59,12 +59,12 @@ Both naturally need to be positive integers.
 **BINARY SPACE PARTITIONING:**
 
 3. Minimum subarea width = Minimum width of the subarea. The program will never go bellow this when partitioning
-4. Minimum subarea_height = Minimum height of the subarea. The program will never go bellow this when partitioning
+4. Minimum subarea height = Minimum height of the subarea. The program will never go bellow this when partitioning
 5. Stop chance = Chance for the partitioning to stop before reaching the minimum limits. Set to high if you want generally bigger areas with a small area every now and then and small if vice versa. Setting to zero with suitable values for other BSP settings will give you precise control of the map created. Max is 99 because the program always needs to make at least one cut to the area.
 6. Width to cease partitioning = If the current subarea width is smaller than this the program won't make any further vertical cuts to it. 
 7. Height to cease partitioning = If the current subarea height is smaller than this the program won't make any further horizontal cuts to it.
 
-Here 3. and can not be more than half of the 6. and same goes for 4. and 7. otherwise there is a high chance of program crashing.
+Here 3. can not be more than half of 6. and same goes for 4. and 7. otherwise there is a high chance of program crashing.
 
 **CELLULAR AUTOMATA:**
 
@@ -73,7 +73,7 @@ Here 3. and can not be more than half of the 6. and same goes for 4. and 7. othe
 10. Min neighbouring walls to set floor to wall = When running the algorithm the minimum number of neighbouring walls to turn a floortile to a walltile.
 11. Iterations = How many sweeps of the area the algorithm makes. Generally speaking the lower the value the grittier the outcome. setting too high will run havoc on performance.
 
-The effects of these settings are highly depended on each other so it is hard to give specific instructions on them. Examples of the effects can be found in the [testing report](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/testing_report.md) (not really yet)
+The effects of these settings are highly depended on each other so it is hard to give specific instructions on them. Examples of the effects can be found in the [testing report](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/testing_report.md)
 
 **CORRIDORS:**
 
@@ -82,8 +82,8 @@ The effects of these settings are highly depended on each other so it is hard to
             
 **OUTPUT:**
 
- 14. Output to console = If set to 0 the program wont print out the created map to console, any other value will get interpreted as `True`.
- 15. Output to file = If set to 0 the program wont output the created map to a file, any other value will get interpreted as `True`. The current settings will get exported to the file with the map.
+ 14. Output to console = If set to 0 the program won't print out the created map to console, any other value will get interpreted as `True`.
+ 15. Output to file = If set to 0 the program won't output the created map to a file, any other value will get interpreted as `True`. The current settings will get exported to the file with the map.
  16. Path to file = Path to the output file, needs to be given as a relative path to the /src folder. The program won't enforce correct path to be given, but invalid path will cause the map creation to fail.
  17. Filename: Name of the file created, defaults to current date and the extension .txt
  
