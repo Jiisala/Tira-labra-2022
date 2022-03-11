@@ -2,6 +2,8 @@
 
 ![dungeon](https://github.com/Jiisala/Tiralabra-2022/blob/main/Documentation/img/dungeon.png)
 
+There is a release for easy sharing: [Click here to get it](https://github.com/Jiisala/Tiralabra-2022/releases/tag/tiralabra2022)
+
 Project is set up using poetry, but simply for running the program no exotic dependencies are needed, just run launch.py. All dependencies are testing or code formatting related. The program expects you to run it from the root directory, if ran from somewhere else some parts of the program will fail.
 
 While using the program use commands Q to quit, C to create new map, S to open settings view and B to get back to main view, all are case insensitive.
